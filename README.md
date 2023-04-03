@@ -5,7 +5,7 @@ A web application that displays the latest news articles from the Guardian API.
 
 ## User Stories
 The following user stories were incorporated in this project:
-
+```
 - As a busy politician
   - So I know what the big stories of the day are
   - I can see all of today's headlines in one place
@@ -18,7 +18,7 @@ The following user stories were incorporated in this project:
 - As a busy politician
   - So I can search what I want to read about
   - I can specify a search query on the page and get articles matching this search
-
+```
 ## Installation
 1. Clone the repository: `git clone https://github.com/diliano/news-app.git`
 2. Install dependencies: `npm install`
