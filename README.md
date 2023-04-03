@@ -27,10 +27,10 @@ The following user stories were incorporated in this project:
 ```
 
 ## Features
-- View headlines from various news sources
-- Click a news article title to view the original article
-- Search for articles using a search query
-- See all headlines with a relevant picture to illustrate each news article
+- View today's headlines
+- Each headline includes an associated image
+- Click a news article title to open the original article in a new tab
+- Search for articles using a search query, dynamically filtering the articles on the page
 
 ## Technologies Used
 - HTML
