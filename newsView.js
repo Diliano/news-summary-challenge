@@ -9,16 +9,22 @@ class NewsView {
   }
 
   async displayHeadlines() {
-    const headlines = await this.client.fetchHeadlines();
-    headlines.forEach(headline => {
-      const headlineEl = document.createElement('div');
-      headlineEl.className = 'headline';
-      headlineEl.innerHTML = `
-        <h2><a href="${headline.webUrl}" target="_blank">${headline.fields.headline}</a></h2>
-        <img src="${headline.fields.thumbnail}">
-      `;
-      this.headlineContainerEl.append(headlineEl);
-    });
+    try {
+      const headlines = await this.client.fetchHeadlines();
+      headlines.forEach(headline => {
+        const headlineEl = document.createElement('div');
+        headlineEl.className = 'headline';
+        headlineEl.innerHTML = `
+          <h2><a href="${headline.webUrl}" target="_blank">${headline.fields.headline}</a></h2>
+          <img src="${headline.fields.thumbnail}">
+        `;
+        this.headlineContainerEl.append(headlineEl);
+      });
+    } catch (error) {
+      console.error(error);
+      throw new Error('Unable to display headlines');
+    }
+    
   }
 
 };
