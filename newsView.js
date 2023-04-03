@@ -5,13 +5,27 @@ class NewsView {
   constructor(client) {
     this.client = client;
 
-    this.headlineContainerEl = document.querySelector('#headline-container')
+    this.headlineContainerEl = document.querySelector('#headline-container');
+
+    this.searchInputEl = document.querySelector('#search-input');
+    this.searchInputEl.addEventListener('input', () => {
+      this.displayHeadlines();
+    });
   }
 
   async displayHeadlines() {
     try {
       const headlines = await this.client.fetchHeadlines();
-      headlines.forEach(headline => {
+
+      const search = this.searchInputEl.value.toLowerCase();
+
+      const filteredHeadlines = headlines.filter(headline => {
+        return headline.fields.headline.toLowerCase().includes(search);
+      });
+
+      this.headlineContainerEl.innerHTML = '';
+
+      filteredHeadlines.forEach(headline => {
         const headlineEl = document.createElement('div');
         headlineEl.className = 'headline';
         headlineEl.innerHTML = `
