@@ -5,4 +5,4 @@ const NewsView = require('./newsView');
 const client = new NewsClient();
 const view = new NewsView(client);
 
-//view.displayHeadlines();
+view.displayHeadlines();

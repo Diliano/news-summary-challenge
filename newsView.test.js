@@ -22,8 +22,8 @@ describe('NewsView', () => {
 
   it('displays headlines', async () => {
     const headlines = [
-      { fields: { headline: 'Headline test', byline: 'Byline test', thumbnail: 'http://test.com/image.png' }},
-      { fields: { headline: 'Headline tester', byline: 'Byline tester', thumbnail: 'http://test.com/image2.png' }},
+      { fields: { headline: 'Headline test', thumbnail: 'http://test.com/image.png' }},
+      { fields: { headline: 'Headline tester', thumbnail: 'http://test.com/image2.png' }},
     ];
 
     client.fetchHeadlines.mockResolvedValueOnce(headlines);
@@ -34,7 +34,6 @@ describe('NewsView', () => {
     expect(headlineEls.length).toBe(2);
 
     expect(headlineEls[0].querySelector('h2').textContent).toBe('Headline test');
-    expect(headlineEls[0].querySelector('p').textContent).toBe('Byline test');
     expect(headlineEls[0].querySelector('img').getAttribute('src')).toBe('http://test.com/image.png');
   });
 

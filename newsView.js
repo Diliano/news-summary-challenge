@@ -14,8 +14,7 @@ class NewsView {
       const headlineEl = document.createElement('div');
       headlineEl.className = 'headline';
       headlineEl.innerHTML = `
-        <h2>${headline.fields.headline}</h2>
-        <p>${headline.fields.byline}</p>
+        <h2><a href="${headline.webUrl}" target="_blank">${headline.fields.headline}</a></h2>
         <img src="${headline.fields.thumbnail}">
       `;
       this.headlineContainerEl.append(headlineEl);
